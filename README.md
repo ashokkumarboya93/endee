@@ -17,7 +17,7 @@
 
 ---
 
-### [ Developer Introduction ]
+### 👨‍💻 [ Developer Introduction ]
 
 **Ashok Kumar Boya**  
 *Full Stack Developer & AI Integration Engineer*  
@@ -32,7 +32,7 @@ I am dedicated to engineering intelligent, highly scalable AI systems that accur
 
 ---
 
-### [ Project Overview & Evaluation Criteria ]
+### 🎯 [ Project Overview & Evaluation Criteria ]
 
 This framework was designed strictly following the Endee evaluation parameters which requested candidates to:   
 > *"Demonstrate a practical use case such as semantic search, RAG (Retrieval Augmented Generation), recommendations, agentic AI workflows, or similar AI applications"*
@@ -41,7 +41,7 @@ This framework was designed strictly following the Endee evaluation parameters w
 
 ---
 
-### [ Live Application & Video Walkthrough ]
+### 🎬 [ Live Application & Video Walkthrough ]
 
 Please proceed to the live demonstration video detailing the complete vector traversal process, UI generation, and LLM formatting.
 
@@ -56,7 +56,7 @@ Please proceed to the live demonstration video detailing the complete vector tra
 
 ---
 
-### [ About Project Work & Core Concepts ]
+### 🧠 [ About Project Work & Core Concepts ]
 
 The core foundation behind ErrorLens AI relies entirely on isolating factual data retrieval from Gen-AI generation.
 
@@ -68,7 +68,7 @@ The dataset is pre-populated into Endee's algorithmic infrastructure. Upon user 
 
 ---
 
-### [ System Architecture & Infrastructure ]
+### 🏗️ [ System Architecture & Infrastructure ]
 
 The logic deliberately isolates computational vectors from the static visual interface. This architecture demonstrates high competency regarding micro-service decoupling—providing a comprehensively structured, highly scalable application that simplifies technical candidate evaluation by operating predictably under load.
 
@@ -78,7 +78,7 @@ The logic deliberately isolates computational vectors from the static visual int
 
 ---
 
-### [ Deep Semantic Engine & HNSW Vectorization ]
+### ⚡ [ Deep Semantic Engine & HNSW Vectorization ]
 
 ErrorLens AI skips the superficial layer of pure text parsing. By mapping over **720+ complex error-solution clusters** across 8 independent programming technologies into 384-dimensional mathematical arrays via the `all-MiniLM-L6-v2` embedding structure, it effectively understands the underlying algorithmic logic failing in the code. 
 
@@ -86,7 +86,7 @@ This logic is natively injected into the Endee Database utilizing a highly optim
 
 ---
 
-### [ RAG Integrity & Hallucination Mitigation ]
+### 🛡️ [ RAG Integrity & Hallucination Mitigation ]
 
 The golden rule of Enterprise AI is controlling the computational context. Pure LLM generation operates unpredictably against abstract code logic—frequently inventing synthetic variables. ErrorLens solves this by employing a strict **Retrieval-Augmented Generation (RAG) framework**. 
 
@@ -94,7 +94,7 @@ Google Gemini 2.0 is functionally hard-locked behind the Context Retrieval bound
 
 ---
 
-### [ Full-Stack Orchestration Protocol ]
+### 🧩 [ Full-Stack Orchestration Protocol ]
 
 The internal architecture is built reflecting modern micro-service topologies. The highly-performant, responsive Vanilla HTML/JS frontend is decoupled completely from the Python FastAPI rendering limits. 
 
@@ -102,7 +102,7 @@ Within the backend execution, vector similarity distance calculations process co
 
 ---
 
-### [ Enterprise-Grade Solution Structuring ]
+### 💼 [ Enterprise-Grade Solution Structuring ]
 
 Debugging is useless if the developer cannot rapidly absorb the output topology. ErrorLens AI systematically engineers the RAG UI response into categorized action points. 
 
@@ -110,7 +110,7 @@ Instead of generating unstructured, confusing walls of text, ErrorLens dynamical
 
 ---
 
-### [ Debug Results Portfolio ]
+### 📊 [ Debug Results Portfolio ]
 
 <div align="center">
   <img src="Results/Res1.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
@@ -122,7 +122,7 @@ Instead of generating unstructured, confusing walls of text, ErrorLens dynamical
 
 ---
 
-### [ Quick Setup & Reproducibility ]
+### ⚙️ [ Quick Setup & Reproducibility ]
 
 To audit the repository implementation natively inside localized Docker and Python virtualization domains:
 
@@ -151,7 +151,7 @@ python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-### [ Acknowledgement to Endee.io ]
+### 🙏 [ Acknowledgement to Endee.io ]
 
 This system was engineered exclusively for the Endee.io evaluation pipeline. Utilizing the Endee Vector Database provided the crucial foundation for the application's semantic execution speed. Its raw edge performance, transparent HNSW indexing formatting, and highly reliable SDK enabled an extraordinarily robust pipeline required for this RAG infrastructure. 
 
