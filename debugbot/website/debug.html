@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Errorlens AI — Debug Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/static/debug.css">
+</head>
+
+<body>
+
+  <!-- NAV BAR -->
+  <nav class="nav" id="mainNav">
+    <a class="nav-brand" href="/">
+      <svg viewBox="0 0 40 36" width="32" height="28" fill="none" stroke="#6C5CE7" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="1" width="30" height="24" rx="3" fill="#fff" />
+        <circle cx="5" cy="5" r="1" fill="#E74C3C" stroke="none" />
+        <circle cx="9" cy="5" r="1" fill="#FDCB6E" stroke="none" />
+        <circle cx="13" cy="5" r="1" fill="#00B894" stroke="none" />
+        <line x1="1" y1="9" x2="31" y2="9" stroke="#E8E0FF" />
+        <polyline points="10 15 6 19 10 23" stroke="#6C5CE7" />
+        <polyline points="22 15 26 19 22 23" stroke="#6C5CE7" />
+        <line x1="18" y1="14" x2="14" y2="24" stroke="#0984E3" />
+        <circle cx="31" cy="25" r="8" fill="#fff" stroke="#6C5CE7" stroke-width="2" />
+        <circle cx="31" cy="24" r="3" fill="none" stroke="#6C5CE7" />
+        <path d="M28 28l-1 1M34 28l1 1M29 21l-1-1M33 21l1-1" stroke="#6C5CE7" stroke-width="1.5" />
+        <line x1="29" y1="27.5" x2="33" y2="27.5" stroke="#6C5CE7" stroke-width="1.5" />
+      </svg>
+      <span>Errorlens AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#rag-pipeline">RAG Pipeline</a>
+      <a href="/#features">Features</a>
+      <a class="btn-nav-active" href="/debug">Debug Console</a>
+      <a href="#" class="btn-nav-dev" id="devNavBtn" onclick="showDevPage();return false;">Developer</a>
+    </div>
+  </nav>
+
+  <!-- ═══ INPUT PAGE (centered, shown first) ═══ -->
+  <section class="input-page" id="inputPage">
+    <div class="input-page-bg">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+
+    <div class="input-center">
+      <div class="input-hero-icon">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="1.5">
+          <path d="M8 2l1.88 1.88M14.12 3.88L16 2M9 7.13v-1a3 3 0 116 0v1" />
+          <path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 014-4h4a4 4 0 014 4v3c0 3.3-2.7 6-6 6" />
+          <path d="M7 14l-2 2M17 14l2 2" />
+        </svg>
+      </div>
+      <h1 class="input-title">What error are you debugging?</h1>
+      <p class="input-subtitle">Paste your error, stacktrace, or describe the issue. Our RAG pipeline will generate a
+        structured debug report.</p>
+
+      <!-- INPUT BOX -->
+      <div class="input-box-wrapper">
+        <textarea class="input-box" id="errorInput" placeholder="Paste your error message or stacktrace here..."
+          rows="4"></textarea>
+        <div class="input-controls">
+          <div class="input-settings">
+            <div class="setting-group">
+              <label class="setting-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                Language
+              </label>
+              <select class="setting-select" id="langSelect">
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="mysql">MySQL</option>
+                <option value="mongodb">MongoDB</option>
+                <option value="redis">Redis</option>
+                <option value="firebase">Firebase</option>
+                <option value="cassandra">Cassandra</option>
+                <option value="all">All Languages</option>
+              </select>
+            </div>
+            <div class="setting-group">
+              <label class="setting-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                </svg>
+                Results
+              </label>
+              <select class="setting-select" id="topKSelect">
+                <option value="3">Top 3</option>
+                <option value="5" selected>Top 5</option>
+                <option value="10">Top 10</option>
+              </select>
+            </div>
+          </div>
+          <button class="analyze-btn" id="analyzeBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            Analyze Error
+          </button>
+        </div>
+      </div>
+
+      <!-- EXAMPLE ERRORS -->
+      <div class="examples-section">
+        <div class="examples-label">Try an example:</div>
+        <div class="examples-grid">
+          <button class="example-card" data-error="IndexError: list index out of range" data-lang="python">
+            <div class="ex-icon ex-py"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg></div>
+            <div class="ex-text"><strong>Python</strong><span>IndexError: list index out of range</span></div>
+          </button>
+          <button class="example-card" data-error="NullPointerException: Cannot invoke method on null object"
+            data-lang="java">
+            <div class="ex-icon ex-java"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg></div>
+            <div class="ex-text"><strong>Java</strong><span>NullPointerException on method call</span></div>
+          </button>
+          <button class="example-card" data-error="TypeError: Cannot read properties of undefined (reading 'map')"
+            data-lang="javascript">
+            <div class="ex-icon ex-js"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+              </svg></div>
+            <div class="ex-text"><strong>JavaScript</strong><span>TypeError: Cannot read properties of undefined</span>
+            </div>
+          </button>
+          <button class="example-card" data-error="Deadlock Detected: Transactions blocking each other"
+            data-lang="mysql">
+            <div class="ex-icon ex-sql"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M3 5v14a9 3 0 0018 0V5" />
+                <path d="M3 12a9 3 0 0018 0" />
+              </svg></div>
+            <div class="ex-text"><strong>MySQL</strong><span>Deadlock Detected</span></div>
+          </button>
+          <button class="example-card" data-error="Duplicate Key Error: Ensure unique index fields" data-lang="mongodb">
+            <div class="ex-icon ex-mongo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2" />
+                <path d="M12 6v12M8 10h8" />
+              </svg></div>
+            <div class="ex-text"><strong>MongoDB</strong><span>Duplicate Key Error</span></div>
+          </button>
+          <button class="example-card" data-error="Connection Refused: Redis server not running" data-lang="redis">
+            <div class="ex-icon ex-redis"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="4" />
+                <path d="M7 12h10M12 7v10" />
+              </svg></div>
+            <div class="ex-text"><strong>Redis</strong><span>Connection Refused</span></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REPORT PAGE (hidden, shown after analysis) ═══ -->
+  <section class="report-page" id="reportPage" style="display:none">
+    <div class="report-topbar">
+      <button class="back-btn" id="backBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5" />
+          <path d="m12 19-7-7 7-7" />
+        </svg>
+        New Analysis
+      </button>
+      <div class="report-query-badge" id="reportQuery"></div>
+      <div class="report-topbar-actions">
+        <button class="export-btn btn-json" onclick="exportJSON()"><svg width="12" height="12" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <path d="M14 2v6h6" />
+          </svg> JSON</button>
+        <button class="export-btn btn-download" onclick="downloadReport()"><svg width="12" height="12"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <path d="M12 15V3" />
+          </svg> Download</button>
+        <button class="export-btn btn-copy" onclick="copyReport()"><svg width="12" height="12" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+          </svg> Copy</button>
+      </div>
+    </div>
+    <div class="report-content" id="reportContent"></div>
+
+    <!-- FOOTER — Thank You Endee -->
+    <footer class="report-footer">
+      <div class="rf-inner">
+        <div class="rf-thanks">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="1.5">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+          <div>
+            <h3>Thank You, Endee</h3>
+            <p>We are grateful to <strong>Endee</strong> for providing this incredible opportunity. This project was
+              built using the <strong>Endee Vector Database</strong>, which powers the semantic search and RAG
+              capabilities at the core of Errorlens AI. Thank you for enabling developers to build innovative AI
+              applications.</p>
+          </div>
+        </div>
+        <div class="rf-divider"></div>
+        <div class="rf-bottom">
+          <div class="rf-brand">
+            <svg viewBox="0 0 40 36" width="22" height="18" fill="none" stroke="#6C5CE7" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="1" width="30" height="24" rx="3" fill="#fff" />
+              <polyline points="10 15 6 19 10 23" />
+              <polyline points="22 15 26 19 22 23" />
+              <circle cx="31" cy="25" r="8" fill="#fff" />
+              <circle cx="31" cy="24" r="3" fill="none" />
+            </svg>
+            <span>Errorlens AI</span>
+          </div>
+          <p>Built with Endee Vector DB, Google Gemini, and Sentence Transformers</p>
+          <p class="rf-copy">&copy; 2026 Errorlens AI — All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ═══ LOADING OVERLAY ═══ -->
+  <div class="loading-overlay" id="loadingOverlay" style="display:none">
+    <div class="loading-card">
+      <div class="loader"></div>
+      <div class="loading-title" id="loadingText">Analyzing error...</div>
+      <div class="loading-steps">
+        <div class="lstep" id="ls1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+          </svg> Embedding error message</div>
+        <div class="lstep" id="ls2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+          </svg> Searching vector database</div>
+        <div class="lstep" id="ls3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+          </svg> Generating AI report</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DEVELOPER PAGE (overlay) ═══ -->
+  <section class="dev-page" id="devPage" style="display:none">
+    <div class="dev-topbar">
+      <button class="back-btn" id="devBackBtn" onclick="hideDevPage()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5" />
+          <path d="m12 19-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+      <span class="dev-topbar-label">Developer Profile</span>
+    </div>
+    <div class="dev-content">
+      <div class="dev-card">
+        <div class="dev-avatar">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M20 21a8 8 0 10-16 0" />
+          </svg>
+        </div>
+        <h1 class="dev-name">Ashok Kumar Boya</h1>
+        <p class="dev-role">Full Stack Developer &amp; AI/ML Enthusiast</p>
+        <div class="dev-bio">
+          <p>Passionate about building intelligent applications that solve real-world problems. Specialized in
+            AI-powered tools, RAG systems, and modern web development. This Errorlens AI project demonstrates semantic
+            search and Retrieval-Augmented Generation using Endee Vector Database and Google Gemini.</p>
+          <p>Experienced in Python, JavaScript, Java, FastAPI, React, and various database technologies. Always eager to
+            learn and contribute to innovative solutions.</p>
+        </div>
+        <div class="dev-links">
+          <a href="https://linkedin.com/in/ashokkumarboya" target="_blank" rel="noopener" class="dev-link dl-linkedin">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <div><strong>LinkedIn</strong><span>Connect with me</span></div>
+          </a>
+          <a href="https://github.com/ashokkumarboya93" target="_blank" rel="noopener" class="dev-link dl-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
+            <div><strong>GitHub</strong><span>View my repositories</span></div>
+          </a>
+          <a href="https://ashok-kumar-portfolio.onrender.com" target="_blank" rel="noopener"
+            class="dev-link dl-portfolio">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+            </svg>
+            <div><strong>Portfolio</strong><span>Explore my work</span></div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="dev-tech">
+        <h3>Technologies Used in Errorlens AI</h3>
+        <div class="dev-tech-grid">
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0984E3"
+              stroke-width="2">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg> Python &amp; FastAPI</div>
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894"
+              stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M3 5v14a9 3 0 0018 0V5" />
+            </svg> Endee Vector DB</div>
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7"
+              stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg> Google Gemini AI</div>
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E17055"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" />
+            </svg> Sentence Transformers</div>
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FDCB6E"
+              stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg> HTML / CSS / JS</div>
+          <div class="dev-tech-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00CEC9"
+              stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg> RAG Pipeline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/static/debug.js"></script>
+  <script>
+    function showDevPage() {
+      document.getElementById('inputPage').style.display = 'none';
+      document.getElementById('reportPage').style.display = 'none';
+      document.getElementById('devPage').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+    function hideDevPage() {
+      document.getElementById('devPage').style.display = 'none';
+      document.getElementById('inputPage').style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+
+</html>

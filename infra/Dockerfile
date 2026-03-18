@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libcurl4-openssl-dev \
+    dos2unix \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -28,17 +29,9 @@ COPY ./CMakeLists.txt /build_space/CMakeLists.txt
 COPY ./install.sh /build_space/install.sh
 
 # Run build script
-ARG BUILD_ARCH
-ENV BUILD_ARCH=${BUILD_ARCH}
-ARG DEBUG=false
-ENV DEBUG=${DEBUG}
-RUN chmod +x ./install.sh && \
-    if [ "$DEBUG" = "true" ]; then \
-        ./install.sh --${BUILD_ARCH} --debug_all --skip-deps; \
-    else \
-        ./install.sh --${BUILD_ARCH} --release --skip-deps; \
-    fi && \
-    cp ./build/ndd-${BUILD_ARCH} ./ndd-server
+RUN dos2unix ./install.sh && chmod +x ./install.sh
+RUN ./install.sh --release --skip-deps --avx2
+RUN ls -la ./build && cp ./build/ndd-* ./ndd-server
 
 # STAGE 2: RUNTIME
 FROM ${BASE_IMAGE}
