@@ -135,12 +135,12 @@ cd endee
 docker compose up -d
 
 # 3. Formulate the local Python logic workspace
-cd debugbot
+cd errorlens_ai
 python -m venv venv
 pip install -r requirements.txt
 
 # 4. Integrate your active LLM authentication token
-# Add .env file exclusively inside debugbot/api/ (.env content: GEMINI_API_KEY=your_key)
+# Add .env file exclusively inside errorlens_ai/api/ (.env content: GEMINI_API_KEY=your_key)
 
 # 5. Populate Endee mappings using the 700+ vectors
 python -m ingest.loader
