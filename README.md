@@ -4,7 +4,7 @@
 
   <br><br>
 
-  <h1>🔥 Errorlens AI</h1>
+  <h1>💻👾 Errorlens AI</h1>
   <h3>An Intelligent, RAG-Powered Semantic Debugging Assistant</h3>
 
   <p>
@@ -21,7 +21,7 @@
 
 ---
 
-## 🙏 A Message to the Endee Team
+## 💻 A Message to the Endee Team
 
 First and foremost, **thank you** for this incredible opportunity to evaluate the Endee Vector Database. Building Errorlens AI was an absolute thrill. Endee's under-the-hood C++ optimizations, blazing-fast HNSW indexing, and highly elegant Python SDK made engineering this Retrieval-Augmented Generation (RAG) pipeline an incredibly seamless experience. 
 
@@ -44,7 +44,7 @@ Watch the complete Endee RAG pipeline run in real-time.
 ## 🚀 Live Demo Link
 
 Feel free to interact with the production deployment here:  
-👉 **[View Live Demo of Errorlens AI](#)** *(Replace this `#` with your actual Render/Vercel URL if hosted!)*
+👉 **[View Live Demo of Errorlens AI](https://drive.google.com/file/d/1LPUb81Rom5XfHx5-Pli8BuophFw1UkZb/view?usp=drive_link)** *(Replace this `#` with your actual Render/Vercel URL if hosted!)*
 
 ---
 
