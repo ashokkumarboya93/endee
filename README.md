@@ -1,308 +1,144 @@
 <div align="center">
 
-  <!-- 🙏 ENDEE GREETING -->
-  <h3>🙏 Thank You, Endee.io</h3>
-  <p>First and foremost, thank you to the Endee team for this incredible opportunity. Building ErrorLens AI utilizing the Endee Vector Database was an amazing experience. The performance, HNSW architectural speed, and intuitive SDK made managing RAG contexts flawless.</p>
-  <br>
+  <!-- Stunning Cover Image -->
+  <img src="Results/background.png" width="100%" alt="ErrorLens AI Banner" style="border-radius:12px; margin-bottom: 20px;" />
 
-  <!-- 🔥 SINGLE DEBUG LOGO -->
-  <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" height="80" alt="Debug Logo"/>
-
-  <h1>⚡ ErrorLens AI</h1>
-  <h3>Semantic Debugging Powered by Vector Search + RAG</h3>
+  <h2>ErrorLens AI</h2>
+  <p><b>Semantic Debugging Powered by Vector Search + Retrieval-Augmented Generation</b></p>
+  <p>Intelligent Error Understanding • Instant Fix Generation • Developer Productivity Booster</p>
 
   <p>
-    Intelligent Error Understanding • Instant Fix Generation • Developer Productivity Booster
-  </p>
-  
-  <p>
+    <a href="https://github.com/ashokkumarboya93" target="_blank"><img src="https://img.shields.io/badge/Developer-Ashok_Kumar_Boya-333333?style=for-the-badge&logo=github" alt="Developer" /></a>
     <a href="https://ashok-kumar-portfolio.onrender.com" target="_blank"><img src="https://img.shields.io/badge/Live_Demo-Active-6C5CE7?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
-    <img src="https://img.shields.io/badge/Vector_DB-Endee-00B894?style=for-the-badge&logo=databricks" alt="Endee" />
-    <img src="https://img.shields.io/badge/AI_Engine-Gemini-FDCB6E?style=for-the-badge&logo=google" alt="Gemini" />
+    <img src="https://img.shields.io/badge/Vector_DB-Endee-00B894?style=for-the-badge" alt="Endee" />
+    <img src="https://img.shields.io/badge/AI_Engine-Gemini-FDCB6E?style=for-the-badge" alt="Gemini" />
   </p>
 
 </div>
 
-<hr>
+---
 
-<!-- ===================================================== -->
-<!-- 🎬 DEMO SECTION (LIVE VIDEO) -->
-<!-- ===================================================== -->
+### Project Overview
 
-<h2>🎬 Live Demo</h2>
+ErrorLens AI is a modern, full-stack debugging ecosystem designed to instantly understand, diagnose, and resolve complex software anomalies. By shifting the debugging paradigm away from rigid keyword matching, ErrorLens AI utilizes **Semantic Vector Search** to mathematically understand the intent and structure of any given stack trace. 
 
-<div align="center">
+The application currently supports 8 major technologies (Python, Java, JavaScript, MySQL, MongoDB, Redis, Firebase, and Cassandra), utilizing a highly curated vector space of over 700 custom error-solution topologies seamlessly indexed natively using Endee's HNSW algorithmic architecture.
 
-<div style="width:100%; padding:10px; border-radius:12px;">
-  <!-- Live Video Embedded Here -->
-  <video src="Results/ErrorLense_ai.mp4" autoplay loop controls muted playsinline width="90%"></video>
-  <p><i>(If video does not autoplay, please hit play or right click to open video file)</i></p>
-</div>
+---
 
-</div>
+### Acknowledgement to Endee.io
 
-<hr>
+This system was engineered exclusively for the Endee.io hiring evaluation pipeline. The utilization of the Endee Vector Database provided the crucial core foundation for the application's semantic search execution speed. Its C++ edge performance, precise HNSW indexing, and highly reliable Python SDK enabled an extraordinarily robust structural pipeline required for real-time Retrieval-Augmented Generation (RAG). 
 
-<!-- ===================================================== -->
-<!-- 🧠 INTRO SECTION -->
-<!-- ===================================================== -->
+We sincerely thank the Endee architecture team for this opportunity and for providing such an incredible, high-performance vector infrastructure to the machine learning community.
 
-<h2>🧠 What is ErrorLens AI?</h2>
+---
 
-<table width="100%">
-<tr>
-<td width="55%">
+### Developer Introduction
 
-ErrorLens AI is an advanced **semantic debugging assistant** that understands errors beyond keywords.
+**Ashok Kumar Boya**  
+*Full Stack Developer & AI Integration Engineer*  
 
-It transforms raw stack traces into:
-- Root cause analysis  
-- Clean explanations  
-- Step-by-step solutions  
-- Language-specific highlighted Code
+I am dedicated to engineering intelligent, highly scalable AI systems that accurately bridge the gap between sophisticated machine learning models and highly interactive, performant user interfaces.
 
-Using:
-- **Vector Search** (Endee DB) for exact history matching
-- **AI Generation** (Gemini) strictly formatted logic parsing
-- **RAG Pipeline** feeding structured Context
+<p>
+  <a href="https://github.com/ashokkumarboya93" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://www.linkedin.com/in/ashok-kumar-boya" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://ashok-kumar-portfolio.onrender.com" target="_blank"><img src="https://img.shields.io/badge/Portfolio-059669?style=flat-square&logo=internet-explorer&logoColor=white" alt="Portfolio" /></a>
+</p>
 
-</td>
+---
 
-<td width="45%" align="center">
+### Live Application & Video Walkthrough
 
-<div style="border-radius:12px; overflow:hidden;">
-  <img src="Results/Res1.png" width="100%" alt="System Overview Image" />
-</div>
+Experience ErrorLens AI directly via our live deployment routing link below. Alternatively, you can witness the complete system interaction and parsing through the attached standalone graphical video overview.
 
-</td>
-</tr>
-</table>
-
-<hr>
-
-<!-- ===================================================== -->
-<!-- ⚙️ HOW IT WORKS -->
-<!-- ===================================================== -->
-
-<h2>⚙️ How It Works</h2>
-
-<table width="100%">
-<tr>
-<td width="50%" align="center">
-
-<div style="border-radius:12px; overflow:hidden;">
-  <img src="Results/res2.png" width="100%" alt="Workflow Execution" />
-</div>
-
-</td>
-
-<td width="50%">
-
-<br>
-1️⃣ User pastes error traceback.<br>
-2️⃣ Text converts to 384-dimensional **Vector Embedding**.<br>
-3️⃣ Search runs via Cosine similarity natively inside **Endee DB**.<br>
-4️⃣ Retrieve similar historical errors + resolutions.<br>
-5️⃣ Send raw retrieved context directly to **Google Gemini**.<br>
-6️⃣ Generator crafts and structures the solution HTML UI output.<br>
-
-</td>
-</tr>
-</table>
-
-<hr>
-
-<!-- ===================================================== -->
-<!-- 🚀 FEATURES -->
-<!-- ===================================================== -->
-
-<h2>🚀 Key Features</h2>
-
-<table width="100%">
-<tr>
-
-<td align="center">
-<h4>⚡ Instant Debugging</h4>
-<p>Get reliable fixes backed by datasets within milliseconds</p>
-</td>
-
-<td align="center">
-<h4>🧠 Semantic Search</h4>
-<p>Understands meaning and code logic, ignoring generic keyword typos</p>
-</td>
-
-<td align="center">
-<h4>🌍 Multi-Language</h4>
-<p>Python (200+), Java (180+), JavaScript (250+), and SQL Databases!</p>
-</td>
-
-</tr>
-</table>
-
-<br>
+**🔗 [View Live Application Demo Here](https://ashok-kumar-portfolio.onrender.com)**
 
 <div align="center">
-
-<div style="width:90%; border-radius:12px; overflow:hidden;">
-  <img src="Results/res3.png" width="100%" alt="Feature Showcase UI" />
+  <p><i>(Press Play to observe the active Vector Retrieval Process in action)</i></p>
+  <video src="https://github.com/ashokkumarboya93/endee/raw/master/Results/ErrorLense_ai.mp4" controls="controls" width="85%" style="border-radius:12px; margin-top:10px;"></video>
+  <br><br>
+  <a href="https://github.com/ashokkumarboya93/endee/raw/master/Results/ErrorLense_ai.mp4">📥 Download Original HD Video (MP4) Directly</a>
 </div>
 
-</div>
+---
 
-<hr>
+### How It Works
 
-<!-- ===================================================== -->
-<!-- 📊 RESULTS SECTION (GALLERY) -->
-<!-- ===================================================== -->
+ErrorLens AI implements a rigorous isolation boundary between its search indices and generative sequences to minimize LLM hallucinations. 
 
-<h2>📊 Debug Results Preview</h2>
+**The Execution Pipeline:**
+1. **Input Encoding:** User stack traces are converted into highly dense, 384-dimensional mathematical arrays via the local `Sentence Transformers` inference network.
+2. **Semantic Search:** The dense vector is mapped against the Endee database using strict cosine similarity measurements in real time. 
+3. **Context Retrieval:** Endee flawlessly returns the closest historical resolution matches, acting as universally known "True" facts safely outside the logic LLM.
+4. **Augmented Prompt Engineering:** The raw Endee payload mapping, bundled with strict validation instructions and boundary parameters, is routed securely to the Google Gemini 2.0 Flash context engine.
+5. **Structured Output Construction:** Gemini finalizes a completely isolated JSON construct detailing exactly where the code syntactically failed alongside the mathematically corrected code topology.
 
 <div align="center">
-
-<p>A look at the incredibly structured UI output detailing code, explanations, and Endee similarity match percentages:</p>
-
-<div style="width:90%; padding:10px; border-radius:12px;">
-  <img src="Results/res4.png" width="100%" alt="Result UI Screenshot" />
-</div>
-<br>
-
-<div style="width:90%; padding:10px; border-radius:12px;">
-  <img src="Results/res5.png" width="100%" alt="Code Snippets Output" />
-</div>
-<br>
-
-<div style="width:90%; padding:10px; border-radius:12px;">
-  <img src="Results/res6.png" width="100%" alt="Matches Explanation Screenshot" />
-</div>
-<br>
-
-<div style="width:90%; padding:10px; border-radius:12px;">
-  <img src="Results/res7.png" width="100%" alt="Matches Explanation Screenshot 2" />
-</div>
-<br>
-
-<div style="width:90%; padding:10px; border-radius:12px;">
-  <img src="Results/res8.png" width="100%" alt="Feature Output Overview" />
+  <img src="Results/res2.png" width="75%" alt="Workflow Execution Preview" style="border-radius:12px; margin-top:10px; margin-bottom: 10px;" />
 </div>
 
-</div>
+---
 
-<hr>
+### System Architecture
 
-<!-- ===================================================== -->
-<!-- 🏗️ ARCHITECTURE -->
-<!-- ===================================================== -->
-
-<h2>🏗️ System Architecture</h2>
+The core infrastructure operates asynchronously, separating the active AI generative interface from the vector similarity measurements:
 
 <div align="center">
-
-<div style="width:90%; border-radius:12px; padding: 20px;">
-```text
-┌────────────────────────────────────────────────────────┐
-│                   ERRORLENS AI                         │
-│                                                        │
-│  User Input (Error Trace)                              │
-│         │                                              │
-│         ▼                                              │
-│  ┌──────────────────────────────────────────┐          │
-│  │             FastAPI Backend              │          │
-│  │                                          │          │
-│  │  1. /search ──► Embed ──► Endee Query    │          │
-│  │  2. /rag    ──► Context + LLM ──► Report │          │
-│  └──────┬──────────────────────┬────────────┘          │
-│         │                      │                       │
-│         ▼                      ▼                       │
-│  ┌──────────────┐      ┌──────────────┐                │
-│  │ Endee Vector │      │ Google       │                │
-│  │ Database     │      │ Gemini AI    │                │
-│  │ (Docker)     │      │ (RAG Engine) │                │
-│  └──────────────┘      └──────────────┘                │
-│         │                      │                       │
-│   Semantic Matches + Structured HTML/JSON Debug Output │
-└────────────────────────────────────────────────────────┘
-```
+  <img src="Results/S_A.png" width="85%" alt="Complete System Architecture Engine" style="border-radius:12px; margin-top:10px; margin-bottom: 10px;" />
 </div>
 
+---
+
+### Key Capabilities
+
+| Core Component | Architectural Functionality |
+|-----------|---------------|
+| **Instant Real-time Debugging** | Generates verified, actionable algorithmic solutions dynamically inside milliseconds framework responses. |
+| **Complete Semantic Matching** | Processes the pure logic of the written code via vector spaces, effectively ignoring arbitrary keyword typos entirely. |
+| **Massive Multi-Language Array** | Operates safely across complex runtime languages (Python, Java, JS) and massive database traces (NoSQL & SQL instances). |
+| **Transparent Visual Ratio Matching** | Exposes the direct raw distance metric calculations pulled exactly as processed inside Endee directly to the User Interface. |
+
+---
+
+### Debug Results Overview
+
+An isolated visual perspective into the detailed generated user environment post-RAG execution:
+
+<div align="center">
+  <img src="Results/Res1.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
+  <img src="Results/res4.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
+  <img src="Results/res5.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
+  <img src="Results/res6.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
+  <img src="Results/res8.png" width="85%" style="margin-bottom:15px; border-radius:12px;" />
 </div>
 
-<hr>
+---
 
-<!-- ===================================================== -->
-<!-- ⚡ TECH STACK -->
-<!-- ===================================================== -->
+### Setup & Reproducibility
 
-<h2>⚡ Tech Stack</h2>
+To audit the repository implementation natively inside localized Docker and Python virtualization domains:
 
-<table width="100%">
-<tr>
-
-<td align="center">
-<b>Frontend</b><br>
-HTML • CSS • Vanilla JS
-</td>
-
-<td align="center">
-<b>Backend API</b><br>
-Python • FastAPI
-</td>
-
-<td align="center">
-<b>Vector DB</b><br>
-Endee (HNSW Engine)
-</td>
-
-<td align="center">
-<b>AI Engine</b><br>
-Google Gemini 2.0
-</td>
-
-</tr>
-</table>
-
-<hr>
-
-<!-- ===================================================== -->
-<!-- ⚙️ SETUP -->
-<!-- ===================================================== -->
-
-<h2>⚙️ Quick Setup</h2>
-
-<pre>
-# 1. Clone your implementation
+```bash
+# 1. Clone the master repository branch
 git clone https://github.com/ashokkumarboya93/endee.git
 cd endee
 
-# 2. Spin up the Endee DB isolated Server
+# 2. Spin up the underlying Endee Database isolated Server
 docker compose up -d
 
-# 3. Setup local python workspace
+# 3. Formulate the local Python logic workspace
 cd debugbot
 python -m venv venv
 pip install -r requirements.txt
 
-# 4. Integrate your LLM token
-# Add .env file inside debugbot/api/ (.env content: GEMINI_API_KEY=your_key)
+# 4. Integrate your active LLM authentication token
+# Add .env file exclusively inside debugbot/api/ (.env content: GEMINI_API_KEY=your_key)
 
-# 5. Populate Endee using 700+ vectors
+# 5. Populate Endee mappings using the 700+ vectors
 python -m ingest.loader
 
-# 6. Launch the App interface on localhost:8000
+# 6. Boot the Application engine binding on localhost:8000
 python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
-</pre>
-
-<hr>
-
-<!-- ===================================================== -->
-<!-- 🌟 FOOTER -->
-<!-- ===================================================== -->
-
-<div align="center">
-
-<h3>🌟 ErrorLens AI</h3>
-
-<p>
-Built specifically for <b>Endee.io Evaluation</b> • Semantic Debugging Engine
-</p>
-
-</div>
+```
