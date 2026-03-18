@@ -1,71 +1,203 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/endee-io/endee/main/docs/assets/logo-dark.svg" height="70" alt="Endee Logo" />
+  <!-- 🙏 ENDEE GREETING -->
+  <h3>🙏 Thank You, Endee.io</h3>
+  <p>First and foremost, thank you to the Endee team for this incredible opportunity. Building ErrorLens AI utilizing the Endee Vector Database was an amazing experience. The performance, HNSW architectural speed, and intuitive SDK made managing RAG contexts flawless.</p>
+  <br>
 
-  <br><br>
+  <!-- 🔥 SINGLE DEBUG LOGO -->
+  <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" height="80" alt="Debug Logo"/>
 
-  <h1>🔥 Errorlens AI</h1>
-  <h3>An Intelligent, RAG-Powered Semantic Debugging Assistant</h3>
+  <h1>⚡ ErrorLens AI</h1>
+  <h3>Semantic Debugging Powered by Vector Search + RAG</h3>
 
   <p>
-    <b>Engineered exclusively for the Endee.io Project-Based Evaluation</b>
+    Intelligent Error Understanding • Instant Fix Generation • Developer Productivity Booster
   </p>
-
+  
   <p>
-    <a href="#live-demo"><img src="https://img.shields.io/badge/Live_Demo-Active-6C5CE7?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+    <a href="https://ashok-kumar-portfolio.onrender.com" target="_blank"><img src="https://img.shields.io/badge/Live_Demo-Active-6C5CE7?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
     <img src="https://img.shields.io/badge/Vector_DB-Endee-00B894?style=for-the-badge&logo=databricks" alt="Endee" />
-    <img src="https://img.shields.io/badge/AI_Engine-Google_Gemini-FDCB6E?style=for-the-badge&logo=google" alt="Gemini" />
-    <img src="https://img.shields.io/badge/Backend-FastAPI-0984E3?style=for-the-badge&logo=fastapi" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/AI_Engine-Gemini-FDCB6E?style=for-the-badge&logo=google" alt="Gemini" />
   </p>
+
 </div>
 
----
+<hr>
 
-## 🙏 A Message to the Endee Team
+<!-- ===================================================== -->
+<!-- 🎬 DEMO SECTION (LIVE VIDEO) -->
+<!-- ===================================================== -->
 
-First and foremost, **thank you** for this incredible opportunity to evaluate the Endee Vector Database. Building Errorlens AI was an absolute thrill. Endee's under-the-hood C++ optimizations, blazing-fast HNSW indexing, and highly elegant Python SDK made engineering this Retrieval-Augmented Generation (RAG) pipeline an incredibly seamless experience. 
-
-This assignment reinforced exactly why high-performance edge vector search is the future of intelligent tooling. Thank you for your vision and for empowering developers to build smarter applications.
-
----
-
-## 🎬 See it in Action!
-
-Watch the complete Endee RAG pipeline run in real-time.
+<h2>🎬 Live Demo</h2>
 
 <div align="center">
-  <video src="ErrorLense_ai.mp4" autoplay loop muted playsinline width="100%" controls></video>
-  <br>
-  <i>(If the video doesn't automatically load, please click the <b>ErrorLense_ai.mp4</b> file directly in the repository to view it in high definition!)</i>
+
+<div style="width:100%; padding:10px; border-radius:12px;">
+  <!-- Live Video Embedded Here -->
+  <video src="Results/ErrorLense_ai.mp4" autoplay loop controls muted playsinline width="90%"></video>
+  <p><i>(If video does not autoplay, please hit play or right click to open video file)</i></p>
 </div>
 
----
+</div>
 
-## 🚀 Live Demo Link
+<hr>
 
-Feel free to interact with the production deployment here:  
-👉 **[View Live Demo of Errorlens AI](#)** *(Replace this `#` with your actual Render/Vercel URL if hosted!)*
+<!-- ===================================================== -->
+<!-- 🧠 INTRO SECTION -->
+<!-- ===================================================== -->
 
----
+<h2>🧠 What is ErrorLens AI?</h2>
 
-## 💡 What is Errorlens AI?
+<table width="100%">
+<tr>
+<td width="55%">
 
-Developers waste countless hours deciphering cryptic, ambiguous error traces. **Errorlens AI** changes the entire debugging paradigm by looking past exact-keyword matching and actually understanding the **semantic intent** of a crash.
+ErrorLens AI is an advanced **semantic debugging assistant** that understands errors beyond keywords.
 
-When a developer pastes a stack trace into the UI, Errorlens:
-1. **Encodes** the text into a 384-dimensional semantic float vector via `Sentence Transformers`.
-2. **Searches** the **Endee Vector Database** instantly locating the absolute closest historical error-solution pairs using cosine similarity.
-3. **Generates** a custom fix by feeding the exact Endee matches into **Google Gemini 2.0 Auto/RAG**, generating a stunning HTML/CSS struct containing a Root Cause Analysis, Step-By-Step Solution, and perfectly highlighted Code Tabs.
+It transforms raw stack traces into:
+- Root cause analysis  
+- Clean explanations  
+- Step-by-step solutions  
+- Language-specific highlighted Code
 
-### 🌟 Multi-Language Support
-Errorlens natively supports **8 ecosystems** featuring over **720+ manually curated data patterns** stored actively inside Endee:
-- **Languages:** Python (200+), Java (180+), JavaScript (250+)
-- **Databases:** MySQL (42), MongoDB (21), Redis (10), Firebase (10), Cassandra (5)
+Using:
+- **Vector Search** (Endee DB) for exact history matching
+- **AI Generation** (Gemini) strictly formatted logic parsing
+- **RAG Pipeline** feeding structured Context
 
----
+</td>
 
-## 🏗️ System Design & Architecture
+<td width="45%" align="center">
 
+<div style="border-radius:12px; overflow:hidden;">
+  <img src="Results/Res1.png" width="100%" alt="System Overview Image" />
+</div>
+
+</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- ⚙️ HOW IT WORKS -->
+<!-- ===================================================== -->
+
+<h2>⚙️ How It Works</h2>
+
+<table width="100%">
+<tr>
+<td width="50%" align="center">
+
+<div style="border-radius:12px; overflow:hidden;">
+  <img src="Results/res2.png" width="100%" alt="Workflow Execution" />
+</div>
+
+</td>
+
+<td width="50%">
+
+<br>
+1️⃣ User pastes error traceback.<br>
+2️⃣ Text converts to 384-dimensional **Vector Embedding**.<br>
+3️⃣ Search runs via Cosine similarity natively inside **Endee DB**.<br>
+4️⃣ Retrieve similar historical errors + resolutions.<br>
+5️⃣ Send raw retrieved context directly to **Google Gemini**.<br>
+6️⃣ Generator crafts and structures the solution HTML UI output.<br>
+
+</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🚀 FEATURES -->
+<!-- ===================================================== -->
+
+<h2>🚀 Key Features</h2>
+
+<table width="100%">
+<tr>
+
+<td align="center">
+<h4>⚡ Instant Debugging</h4>
+<p>Get reliable fixes backed by datasets within milliseconds</p>
+</td>
+
+<td align="center">
+<h4>🧠 Semantic Search</h4>
+<p>Understands meaning and code logic, ignoring generic keyword typos</p>
+</td>
+
+<td align="center">
+<h4>🌍 Multi-Language</h4>
+<p>Python (200+), Java (180+), JavaScript (250+), and SQL Databases!</p>
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<div align="center">
+
+<div style="width:90%; border-radius:12px; overflow:hidden;">
+  <img src="Results/res3.png" width="100%" alt="Feature Showcase UI" />
+</div>
+
+</div>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- 📊 RESULTS SECTION (GALLERY) -->
+<!-- ===================================================== -->
+
+<h2>📊 Debug Results Preview</h2>
+
+<div align="center">
+
+<p>A look at the incredibly structured UI output detailing code, explanations, and Endee similarity match percentages:</p>
+
+<div style="width:90%; padding:10px; border-radius:12px;">
+  <img src="Results/res4.png" width="100%" alt="Result UI Screenshot" />
+</div>
+<br>
+
+<div style="width:90%; padding:10px; border-radius:12px;">
+  <img src="Results/res5.png" width="100%" alt="Code Snippets Output" />
+</div>
+<br>
+
+<div style="width:90%; padding:10px; border-radius:12px;">
+  <img src="Results/res6.png" width="100%" alt="Matches Explanation Screenshot" />
+</div>
+<br>
+
+<div style="width:90%; padding:10px; border-radius:12px;">
+  <img src="Results/res7.png" width="100%" alt="Matches Explanation Screenshot 2" />
+</div>
+<br>
+
+<div style="width:90%; padding:10px; border-radius:12px;">
+  <img src="Results/res8.png" width="100%" alt="Feature Output Overview" />
+</div>
+
+</div>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🏗️ ARCHITECTURE -->
+<!-- ===================================================== -->
+
+<h2>🏗️ System Architecture</h2>
+
+<div align="center">
+
+<div style="width:90%; border-radius:12px; padding: 20px;">
 ```text
 ┌────────────────────────────────────────────────────────┐
 │                   ERRORLENS AI                         │
@@ -87,60 +219,90 @@ Errorlens natively supports **8 ecosystems** featuring over **720+ manually cura
 │  │ (Docker)     │      │ (RAG Engine) │                │
 │  └──────────────┘      └──────────────┘                │
 │         │                      │                       │
-│         ▼                      ▼                       │
 │   Semantic Matches + Structured HTML/JSON Debug Output │
 └────────────────────────────────────────────────────────┘
 ```
-**Why Endee was perfect for this:** It provides incredibly rapid, sub-millisecond retrieval of highly dimensional integer/float arrays at scale, which operates beautifully when doing real-time typing/querying against large LLMs. 
+</div>
 
----
+</div>
 
-## ⚙️ Quick Setup Instructions
+<hr>
 
-Want to run Errorlens AI locally? Follow these steps:
+<!-- ===================================================== -->
+<!-- ⚡ TECH STACK -->
+<!-- ===================================================== -->
 
-**1. Clone this repository**
-```bash
+<h2>⚡ Tech Stack</h2>
+
+<table width="100%">
+<tr>
+
+<td align="center">
+<b>Frontend</b><br>
+HTML • CSS • Vanilla JS
+</td>
+
+<td align="center">
+<b>Backend API</b><br>
+Python • FastAPI
+</td>
+
+<td align="center">
+<b>Vector DB</b><br>
+Endee (HNSW Engine)
+</td>
+
+<td align="center">
+<b>AI Engine</b><br>
+Google Gemini 2.0
+</td>
+
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- ⚙️ SETUP -->
+<!-- ===================================================== -->
+
+<h2>⚙️ Quick Setup</h2>
+
+<pre>
+# 1. Clone your implementation
 git clone https://github.com/ashokkumarboya93/endee.git
 cd endee
-```
 
-**2. Start Endee Vector Database**
-```bash
-# Spin up the provided C++ Endee Database inside Docker
+# 2. Spin up the Endee DB isolated Server
 docker compose up -d
-```
 
-**3. Setup Python & Dependencies**
-```bash
+# 3. Setup local python workspace
 cd debugbot
 python -m venv venv
-# Activate it (Window: .\venv\Scripts\activate | Mac/Linux: source venv/bin/activate)
-
 pip install -r requirements.txt
-```
 
-**4. Configure AI Engine**  
-Create a `.env` file inside `debugbot/api/` and add your free Google AI API Key:
-```env
-GEMINI_API_KEY=your_google_gemini_key_here
-```
+# 4. Integrate your LLM token
+# Add .env file inside debugbot/api/ (.env content: GEMINI_API_KEY=your_key)
 
-**5. Ingest the Data to Endee**
-```bash
-# Converts the 700+ CSV parameters into Vector Embeddings and saves to Endee
+# 5. Populate Endee using 700+ vectors
 python -m ingest.loader
-```
 
-**6. Launch!**
-```bash
+# 6. Launch the App interface on localhost:8000
 python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
-```
-Navigate to **`http://localhost:8000`** in any browser.
+</pre>
 
----
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🌟 FOOTER -->
+<!-- ===================================================== -->
 
 <div align="center">
-  <b>Errorlens AI</b> &copy; 2026 — Built by Ashok Kumar Boya<br>
-  <i>Semantic AI Debugging · RAG Pipeline · Vector Search</i>
+
+<h3>🌟 ErrorLens AI</h3>
+
+<p>
+Built specifically for <b>Endee.io Evaluation</b> • Semantic Debugging Engine
+</p>
+
 </div>
