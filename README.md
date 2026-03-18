@@ -2,299 +2,443 @@
   <img height="100" alt="Endee" src="./docs/assets/logo-dark.svg">
 </p>
 
-# Errorlens AI — Semantic Debug Report Generator
 
-**An AI/ML project built with Endee Vector Database for the Endee.io Project-Based Evaluation.**
+<div align="center">
 
-> Built with **Endee Vector Database** · **Google Gemini AI** · **Sentence Transformers** · **FastAPI**
+<!-- HERO BANNER -->
+<img src="./docs/assets/logo-dark.svg" height="90" alt="Endee Logo" />
 
----
+<br/>
 
-## 🎯 Endee Project Evaluation Criteria Addressed
-- ✅ **Built an AI/ML project using Endee** as the core vector database for semantic search.
-- ✅ **Practical Use Case:** Demonstrates Semantic Search and Retrieval-Augmented Generation (RAG) to instantly retrieve context-aware bug fixes.
-- ✅ **Clear README:** Includes project overview, system design, use of Endee, and setup instructions.
-- ✅ **Hosted on GitHub:** Hosted in my personal, starred, and forked repository.
+# 🙏 A Note of Gratitude — Thank You, Endee
 
----
+> *"Endee didn't just power our search — it gave this project a brain."*
 
-## Table of Contents
+**Errorlens AI** was built on top of the **[Endee Vector Database](https://github.com/endee-io/endee)** — a blazing-fast, C++-native vector engine with HNSW indexing, cosine similarity, and an elegant Python SDK. Without Endee's performance, reliability, and developer-first design, a production-grade RAG debugging system like this would not have been possible.
 
-1. [Overview](#1-overview)
-2. [Key Features](#2-key-features)
-3. [System Architecture (System Design)](#3-system-architecture-system-design)
-4. [Technology Stack](#4-technology-stack)
-5. [Supported Languages & Databases](#5-supported-languages--databases)
-6. [Project Structure](#6-project-structure)
-7. [Setup & Installation Instructions](#7-setup--installation-instructions)
-8. [Running the Application](#8-running-the-application)
-9. [How It Works — The RAG Pipeline](#9-how-it-works--the-rag-pipeline)
-10. [Debug Report Structure](#10-debug-report-structure)
-11. [API Endpoints](#11-api-endpoints)
-12. [Data Ingestion](#12-data-ingestion)
-13. [Example Queries](#13-example-queries)
-14. [Use of Endee (Why Endee?)](#14-use-of-endee-why-endee)
-15. [Acknowledgements](#15-acknowledgements)
+Thank you, Endee team — for building tools that let developers build *smarter*. 💙
 
 ---
 
-## 1. Overview
+<br/>
 
-**Errorlens AI** is a full-stack AI debugging assistant that goes far beyond simple keyword matching. When a developer pastes an error message, stack trace, or describes an issue, Errorlens AI:
+<!-- TITLE BLOCK -->
 
-1. **Embeds** the error text into a 384-dimensional semantic vector using Sentence Transformers.
-2. **Searches** the Endee Vector Database for the most similar known error patterns using cosine similarity.
-3. **Generates** a comprehensive, structured debug report using Google Gemini AI (RAG) or an intelligent fallback system.
-4. **Presents** the report in a beautiful, exportable format with code examples, reference links, and prevention tips.
+<h1>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=36&pause=1000&color=6366F1&center=true&vCenter=true&width=700&lines=Errorlens+AI;Semantic+Debug+Report+Generator;RAG+%2B+Vector+Search+%2B+AI" alt="Typing SVG" />
+</h1>
 
-The application supports **8 languages and databases**: Python, Java, JavaScript, MySQL, MongoDB, Redis, Firebase, and Cassandra — with **720+ curated error patterns** actively indexed in the Endee base.
+<p align="center">
+  <strong>An intelligent, RAG-powered debugging assistant that understands your errors <em>semantically</em> — and turns them into structured, actionable debug reports.</strong>
+</p>
+
+<br/>
+
+<!-- BADGES -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Endee-Vector%20DB-6366F1?style=for-the-badge&logo=databricks&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google%20Gemini-2.0%20Flash-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/Sentence%20Transformers-NLP-FF6B35?style=for-the-badge&logo=huggingface&logoColor=white" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/700%2B-Error%20Patterns-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/8-Languages%20%26%20DBs-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/%3C2s-Report%20Generation-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge" />
+</p>
+
+<br/>
+
+<!-- DEMO LINKS -->
+<p align="center">
+  <a href="https://drive.google.com/drive/folders/1nU9-94BDw6loG4h13a26zZpXXY5a6FXK?usp=sharing">
+    <img src="https://img.shields.io/badge/🚀%20Live%20Demo-View%20on%20Google%20Drive-6366F1?style=for-the-badge&logo=googledrive&logoColor=white" alt="Live Demo" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="#-demo-video">
+    <img src="https://img.shields.io/badge/▶%20Watch%20Demo-Video%20Walkthrough-FF0000?style=for-the-badge&logo=googledrive&logoColor=white" alt="Watch Video" />
+  </a>
+</p>
+
+</div>
 
 ---
 
-## 2. Key Features
+## 📺 Demo Video
 
-### Semantic Search (NLP)
-- **Meaning-based matching** — finds errors based on semantic similarity, not keyword overlap.
-- *"object is null"* correctly matches *"NullPointerException"* even though zero words overlap.
-- Sub-second High-Dimensional retrieval via Endee's fast HNSW indexing algorithm.
+<div align="center">
 
-### RAG Report Generation (LLM)
-- **Structured debug reports** with root cause, description, solution, code examples, and prevention tips.
-- **Language-specific code samples** — both erroneous and corrected code.
-- **Graceful fallback** — when the LLM quota is exhausted, a rich, deterministic fallback generator produces equally detailed reports to ensure maximum uptime.
+> 🎬 **Watch Errorlens AI in action** — from pasting an error to receiving a full structured debug report in under 2 seconds.
 
-### Modern Web UI
-- **Landing page** — animated concepts explaining Semantic Search, RAG concepts, architecture, and tech features.
-- **Debug console** — user input area with dynamic multi-language tabs.
-- **Export options** — Download to JSON, copy directly to the clipboard.
+[![▶ Click to Watch — Full Demo Video](https://img.shields.io/badge/▶%20Click%20to%20Watch-Full%20Demo%20on%20Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1nU9-94BDw6loG4h13a26zZpXXY5a6FXK?usp=sharing)
+
+📂 **[Open Demo Folder on Google Drive](https://drive.google.com/drive/folders/1nU9-94BDw6loG4h13a26zZpXXY5a6FXK?usp=sharing)** — includes the full walkthrough video and screenshots.
+
+</div>
 
 ---
 
-## 3. System Architecture (System Design)
+## ✨ What is Errorlens AI?
+
+When a developer pastes an error — a stack trace, a cryptic exception, a vague description — **Errorlens AI doesn't just keyword-match.** It *understands.*
+
+```
+"object is null"  →  matches  →  NullPointerException
+                    (zero words overlap, but semantically identical)
+```
+
+Here's what happens under the hood:
+
+```
+Your Error String
+      │
+      ▼
+┌─────────────────────────────────────────────┐
+│  Phase 1 — Semantic Search                 │
+│  Encode → 384-dim vector → Query Endee DB  │
+│  Return Top-K similar error patterns        │
+└─────────────────────────────────────────────┘
+      │
+      ▼
+┌─────────────────────────────────────────────┐
+│  Phase 2 — RAG Report Generation           │
+│  Context + Query → Google Gemini 2.0        │
+│  Parse structured JSON → Render Report      │
+└─────────────────────────────────────────────┘
+      │
+      ▼
+🎯 Full Debug Report: Root Cause · Fix · Code · Tips · Links
+```
+
+---
+
+## 🔥 Key Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🧠 Semantic Search (NLP)
+- Meaning-based matching via `all-MiniLM-L6-v2`
+- 384-dimensional vector embeddings
+- Sub-second retrieval via Endee's **HNSW indexing**
+- No keyword overlap required
+
+</td>
+<td width="50%">
+
+### 📄 RAG Report Generation
+- Structured JSON reports via **Google Gemini 2.0 Flash**
+- Root cause · Description · Solution · Code examples
+- Auto-generated documentation reference links
+- Keyword highlighting throughout the report
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🌐 8 Languages & Databases
+- **Python, Java, JavaScript** — 630+ patterns
+- **MySQL, MongoDB, Redis** — all major DB flavors
+- **Firebase, Cassandra** — cloud & distributed DBs
+- Language-specific code examples in every report
+
+</td>
+<td width="50%">
+
+### 🛡️ Intelligent Fallback System
+- Never fails — even without Gemini API quota
+- Fallback generator creates equally detailed reports
+- Language-aware code patterns for all 8 platforms
+- Graceful degradation with full feature parity
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🎨 Beautiful Web UI
+- Toon-flat professional landing page
+- Live debug console with loading animation
+- Multi-section report cards with color-coded stripes
+- Developer profile page with social links
+
+</td>
+<td width="50%">
+
+### 📤 Export Options
+- **JSON** structured export
+- **TXT** plain-text download
+- **Copy to Clipboard** with toast notification
+- All report sections included in every export
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🗂️ Supported Languages & Error Patterns
+
+<div align="center">
+
+| Platform | Patterns | Type |
+|:--------:|:--------:|:----:|
+| 🐍 **Python** | 200+ | Programming Language |
+| ☕ **Java** | 180+ | Programming Language |
+| 🟨 **JavaScript** | 250+ | Programming Language |
+| 🐬 **MySQL** | 42 | Relational Database |
+| 🍃 **MongoDB** | 21 | NoSQL Database |
+| 🔴 **Redis** | 10 | In-Memory Store |
+| 🔥 **Firebase** | 10 | Cloud Platform |
+| 👁️ **Cassandra** | 5 | Distributed Database |
+
+</div>
+
+---
+
+## 🏗️ System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    ERRORLENS AI                          │
 │                                                         │
-│  ┌──────────┐     ┌──────────────┐     ┌─────────────┐ │
-│  │ Landing  │     │ Debug Console│     │ Developer   │ │
-│  │ Page     │     │ (Input +     │     │ Profile     │ │
-│  │          │     │  Report)     │     │ Page        │ │
-│  └──────────┘     └──────┬───────┘     └─────────────┘ │
+│  ┌──────────┐   ┌──────────────────┐   ┌─────────────┐ │
+│  │ Landing  │   │  Debug Console   │   │  Developer  │ │
+│  │  Page    │   │  (Input+Report)  │   │   Profile   │ │
+│  └──────────┘   └────────┬─────────┘   └─────────────┘ │
 │                          │                               │
-│         ┌────────────────┼────────────────┐              │
-│         │                │                │              │
-│         ▼                ▼                ▼              │
-│  ┌─────────────────────────────────────────────┐        │
-│  │              FastAPI Backend                 │        │
-│  │                                              │        │
-│  │  POST /search ──► Embed ──► Endee Query     │        │
-│  │  POST /rag    ──► Context + LLM ──► Report  │        │
-│  │  GET  /       ──► Landing Page              │        │
-│  │  GET  /debug  ──► Debug Console             │        │
-│  └──────────┬──────────────┬───────────────────┘        │
-│             │              │                             │
-│             ▼              ▼                             │
-│  ┌──────────────┐  ┌──────────────┐                     │
-│  │ Endee Vector │  │ Google       │                     │
-│  │ Database     │  │ Gemini AI    │                     │
-│  │ (Docker)     │  │ (gemini-2.0) │                     │
-│  │              │  │              │                     │
-│  │ HNSW Index   │  │ RAG Context  │                     │
-│  │ 384-dim      │  │ Generation   │                     │
-│  │ Cosine Sim   │  │              │                     │
-│  └──────────────┘  └──────────────┘                     │
+│  ┌───────────────────────▼───────────────────────────┐  │
+│  │                FastAPI Backend                     │  │
+│  │  POST /search ──► Embed ──► Endee Query           │  │
+│  │  POST /rag    ──► Context + LLM ──► Report        │  │
+│  └───────────────┬──────────────┬─────────────────────┘  │
+│                  │              │                         │
+│                  ▼              ▼                         │
+│     ┌──────────────┐   ┌──────────────┐                  │
+│     │ Endee Vector │   │ Google       │                  │
+│     │ Database     │   │ Gemini 2.0   │                  │
+│     │ HNSW · 384d  │   │ RAG Reports  │                  │
+│     └──────────────┘   └──────────────┘                  │
 └─────────────────────────────────────────────────────────┘
 ```
 
-The system is decoupled directly into two specific operations:
-1. **The Vector Search Phase:** Uses `all-MiniLM-L6-v2` locally inside FastAPI to build query vectors. Endee performs nearest neighbor lookup.
-2. **The Generation Phase:** The Top-K items from Endee form the semantic context window, securely passed alongside the original traceback to Google Gemini for structural completion.
+---
+
+## ⚙️ Tech Stack
+
+<div align="center">
+
+| Layer | Technology | Role |
+|:-----:|:----------:|:----:|
+| 🗄️ Vector DB | **Endee** (C++ HNSW) | Semantic similarity search |
+| 🔧 Backend | **FastAPI** (Python) | REST API + static serving |
+| 🤖 Embeddings | **all-MiniLM-L6-v2** | Text → 384-dim vectors |
+| 🧬 LLM | **Google Gemini 2.0 Flash** | RAG report generation |
+| 🖼️ Frontend | **HTML + CSS + Vanilla JS** | No framework — pure & fast |
+| 🐳 DevOps | **Docker Compose** | Endee vector DB container |
+| 🔤 Fonts | **Plus Jakarta Sans + JetBrains Mono** | Professional typography |
+
+</div>
 
 ---
 
-## 4. Technology Stack
+## 🚀 Quick Start
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Vector Database** | Endee (C++ HNSW Engine) | High-performance semantic similarity search |
-| **Backend API** | FastAPI (Python) | REST endpoints for search, RAG, and static file serving |
-| **Embeddings** | sentence-transformers/all-MiniLM-L6-v2 | Converts text → 384-dimensional vectors |
-| **LLM** | Google Gemini 2.0 Flash | Generates structured debug reports via RAG |
-| **Frontend** | Vanilla HTML/CSS/JS | Lightning-fast static application interface |
-| **Containerization** | Docker Compose | Runs the Endee vector database safely in isolation |
+### Prerequisites
+
+- Python 3.10+
+- Docker Desktop
+- Google Gemini API Key *(free)*
+
+### 1. Clone & Start Endee
+
+```bash
+git clone https://github.com/ashokkumarboya93/endee.git
+cd endee
+docker compose up -d
+```
+
+### 2. Install Dependencies
+
+```bash
+cd debugbot
+python -m venv venv
+source venv/bin/activate   # Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Configure API Key
+
+```bash
+# Create debugbot/api/.env
+echo "GEMINI_API_KEY=your_key_here" > api/.env
+```
+
+> 🔑 Get a free key at [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+### 4. Ingest Error Data
+
+```bash
+python -m ingest.loader
+```
+
+```
+✅ Processing python_errors.csv     →  200+ patterns
+✅ Processing java_errors.csv       →  180+ patterns
+✅ Processing javascript_errors.csv →  250+ patterns
+✅ Processing sql_errors.csv        →   93 patterns
+🚀 723 vectors upserted to Endee!
+```
+
+### 5. Launch the App
+
+```bash
+python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+<div align="center">
+
+| Page | URL |
+|:----:|:---:|
+| 🏠 Landing Page | `http://localhost:8000` |
+| 🐛 Debug Console | `http://localhost:8000/debug` |
+| 📖 API Docs | `http://localhost:8000/docs` |
+
+</div>
 
 ---
 
-## 5. Supported Languages & Databases
+## 📊 Example Queries
 
-- **Programming:** Python (200+ patterns), Java (180+ patterns), JavaScript (250+ patterns)
-- **Databases/Misc:** MySQL (42), MongoDB (21), Redis (10), Firebase (10), Cassandra (5)
+<details>
+<summary><strong>🐍 Python — IndexError</strong></summary>
+
+**Input:** `IndexError: list index out of range`
+
+**Report includes:**
+- Root cause: accessing beyond list boundaries
+- Code: `len()` validation, `try/except IndexError`, safe indexing patterns
+- Reference: docs.python.org/3/library/exceptions.html
+
+</details>
+
+<details>
+<summary><strong>☕ Java — NullPointerException</strong></summary>
+
+**Input:** `NullPointerException: Cannot invoke method on null object`
+
+**Report includes:**
+- Root cause: dereferencing a null reference
+- Code: null checks, `Optional<>`, `Objects.requireNonNull()`
+- Reference: docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html
+
+</details>
+
+<details>
+<summary><strong>🟨 JavaScript — TypeError</strong></summary>
+
+**Input:** `TypeError: Cannot read properties of undefined (reading 'map')`
+
+**Report includes:**
+- Root cause: calling `.map()` on an undefined variable
+- Code: optional chaining `?.`, `Array.isArray()`, nullish coalescing `??`
+
+</details>
+
+<details>
+<summary><strong>🐬 MySQL — Deadlock</strong></summary>
+
+**Input:** `Deadlock Detected: Transactions blocking each other`
+
+**Report includes:**
+- Root cause: circular lock dependency between concurrent transactions
+- Code: consistent lock ordering, `FOR UPDATE`, retry logic
+
+</details>
 
 ---
 
-## 6. Project Structure
+## 📁 Project Structure
 
 ```
 endee/
 ├── debugbot/
 │   ├── api/
-│   │   ├── main.py              # FastAPI endpoints (The Core Application)
-│   │   └── .env                 # GEMINI_API_KEY configuration
-│   ├── data/                    # CSVs loaded strictly as Data Source files
+│   │   ├── main.py              # FastAPI backend
+│   │   └── .env                 # GEMINI_API_KEY
+│   ├── data/
+│   │   ├── python_errors.csv    # 200+ Python patterns
+│   │   ├── java_errors.csv      # 180+ Java patterns
+│   │   ├── javascript_errors.csv# 250+ JS patterns
+│   │   └── sql_errors.csv       # 93 DB patterns
 │   ├── ingest/
-│   │   └── loader.py            # The Ingestion logic converting CSVs → Endee vectors
-│   ├── website/                 # All Frontend Static Files (HTML/CSS/JS)
-│   └── requirements.txt         # Python dependencies
-├── docker-compose.yml           # Pre-configured Endee service allocation
-└── README.md                    # This document
+│   │   └── loader.py            # CSV → Endee vectors
+│   ├── website/
+│   │   ├── index.html           # Landing page
+│   │   ├── debug.html           # Debug console
+│   │   └── debug.js             # Frontend logic
+│   └── requirements.txt
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
 
-## 7. Setup & Installation Instructions
+## 🛣️ Roadmap
 
-### Prerequisites
-- **Python 3.10+**  
-- **Docker Desktop** (Required to spin up Endee. Linux/MacOS users may optionally install natively).
-- **Google Gemini API Key** ([Free from Google AI Studio](https://aistudio.google.com/app/apikey)).
-
-### Step 1: Clone the Repository
-```bash
-# Clone your forked repo containing the Endee evaluation
-git clone https://github.com/ashokkumarboya93/endee.git
-cd endee
-```
-
-### Step 2: Start the Endee Vector Database
-```bash
-# This brings up the Endee vector database container on localhost:8080
-docker compose up -d
-```
-
-### Step 3: Configure the Python Environment
-```bash
-# Navigate to the application root
-cd debugbot
-
-# Setup a clean Virtual Environment
-python -m venv venv
-
-# Activate Environment (Windows)
-.\venv\Scripts\activate
-# Activate Environment (Linux/MacOS)
-source venv/bin/activate
-
-# Install the necessary pip packages
-pip install -r requirements.txt
-```
-
-### Step 4: Inject the LLM Credentials
-Create a `.env` file within the `debugbot/api/` folder:
-```env
-GEMINI_API_KEY=AIzaSy_your_actual_key_here
-```
-
-### Step 5: Data Ingestion (Vectorizing to Endee)
-```bash
-# Upload all error models from /data directly to the Endee Docker instance
-python -m ingest.loader
-```
-*Expected Output: "Upserting 723 total items into Endee... Data ingestion complete!"*
+- [ ] 🔄 **Continuous Learning** — auto-ingest new errors from user queries
+- [ ] 🔀 **Hybrid Search** — dense vectors + sparse BM25 keyword matching
+- [ ] 📸 **Multi-Modal Input** — screenshot error messages with OCR
+- [ ] 🔁 **CI/CD Plugin** — GitHub Actions integration to auto-debug builds
+- [ ] 📡 **Live Monitoring** — real-time error stream analysis from logs
+- [ ] 🌙 **Dark Mode** — full dark theme across all pages
+- [ ] 👤 **User Auth** — personal error history and saved reports
 
 ---
 
-## 8. Running the Application
+## 🙌 Acknowledgements
 
-Execute the FastAPI Application interface:
-```bash
-cd debugbot
-python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
-```
+<div align="center">
 
-The system is fully accessible at:
-- **Landing Page/App:** [http://localhost:8000](http://localhost:8000)
-- **Debug Interface:** [http://localhost:8000/debug](http://localhost:8000/debug)
-- **API Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+| Technology | Role |
+|:----------:|:----:|
+| [**Endee Vector Database**](https://github.com/endee-io/endee) | Semantic vector search — the heart of this project |
+| [**Google Gemini AI**](https://ai.google.dev) | LLM for RAG report generation |
+| [**Sentence Transformers**](https://www.sbert.net) | `all-MiniLM-L6-v2` text embeddings |
+| [**FastAPI**](https://fastapi.tiangolo.com) | Backend REST API framework |
+| [**Plus Jakarta Sans**](https://fonts.google.com/specimen/Plus+Jakarta+Sans) | Primary UI typeface |
+| [**JetBrains Mono**](https://www.jetbrains.com/lp/mono/) | Code typography |
 
----
-
-## 9. How It Works — The RAG Pipeline
-
-1. **Text Embedding:** Incoming tracebacks are embedded into a dimensional float array locally.
-2. **Vector Query:** This vector goes out to Endee via the python SDK (`client.query()`), searching against an index named `debugbot_errors`. 
-3. **Retrieval Selection:** Nearest vectors mathematically representing similar failure paths are recovered, paired with their metadata solutions.
-4. **LLM Generation:** The context and the exact traceback are streamed as context to Gemini. The LLM bridges gaps returning pure, structured JSON.
-5. **Report Display:** The web app unpackages the JSON and highlights relevant code segments.
+</div>
 
 ---
 
-## 10. Debug Report Structure
+<div align="center">
 
-Each structured RAG response features:
-* **Root Cause:** Deep multi-paragraph breakdown of why code mathematically failed.
-* **Solution:** Step-by-step structural fix instructions.
-* **Code Examples:** Segmented display comparing the "Wrong Code" with the "Fixed Code".
-* **Semantic Matches:** Explicit raw matches straight from the Endee DB showing the user how similar we matched to a historical issue.
-* **Reference Links:** Automatically inferred links directly to official Documentation/StackOverflow matching the intent of the bug.
+### 💙 Special Thanks to Endee
 
----
+> The **Endee Vector Database** is the backbone of Errorlens AI.  
+> Its high-performance C++-based architecture, HNSW indexing, cosine similarity support,  
+> and elegant Python SDK made it possible to build a **production-grade RAG system**  
+> with remarkable speed and reliability.  
+>
+> *This project wouldn't exist without the vision and technology that Endee brings to the ecosystem.*  
+> **Thank you for empowering developers to build smarter.** 🚀
 
-## 11. API Endpoints
-
-### `POST /search`
-**Goal:** Query the Endee Index
-**Payload:** `{"error_string": "IndexError", "language": "python", "top_k": 3}`
-
-### `POST /rag`
-**Goal:** Run context against Gemini Flash 2.0.
-**Payload:** `{"error_string": "...", "language": "python", "retrieved_contexts": [...]}`
+<br/>
 
 ---
 
-## 12. Data Ingestion
+**Errorlens AI** &copy; 2026 — Built by [Ashok Kumar Boya](https://github.com/ashokkumarboya93)
 
-The ingestion process reads raw CSV tables holding hundreds of software bugs. 
-It utilizes the native `endee` Python package effectively:
-```python
-client = Endee()
-index = client.get_index(name="debugbot_errors")
-# Creates representations and upserts directly over HTTP 
-embeddings = model.encode(errors, convert_to_numpy=True)
-index.upsert(vectors) 
-```
+*Semantic AI Debugging · RAG Pipeline · Vector Search*
 
----
+<br/>
 
-## 13. Example Queries
+⭐ **If this project helped you, please give it a star!** ⭐
 
-* **Python Query:** `IndexError: list index out of range` → Automatically catches boundaries out of context.
-* **MongoDB Query:** `Duplicate Key Error: Ensure unique index fields` → Finds write conflict thresholds.
-* **JavaScript Query:** `TypeError: Cannot read properties of undefined (reading 'map')` → Analyzes Optional chaining patterns gracefully using RAG.
-
----
-
-## 14. Use of Endee (Why Endee?)
-
-Pursuant to the **Endee Hiring Evaluation**, the core Vector capability fully leverages **Endee Vector Database** exclusively. 
-
-**Why was Endee optimal for Errorlens AI?**
-1. **Performance at Edge:** Leveraging Endee’s C++ core with HNSW structuring provides the exact sub-millisecond responses needed when performing real-time programmatic debugging.
-2. **Simpler Python Integration:** The Endee Python SDK provides a highly intuitive operational structure mapping tightly to PyTorch matrices without clunky boilerplate.
-3. **Containerized Agility:** Endee spun up flawlessly inside the provided `docker-compose.yml`, reducing complexity allowing us to strictly focus on the RAG interface.
-4. **Accurate Cosine Processing:** Evaluates strict dimensional similarities effortlessly directly fitting the error-code mapping threshold requirements perfectly.
-
----
-
-## 15. Acknowledgements
-
-We extend our heartfelt gratitude to the **Endee** team for providing this robust vector database architecture and evaluation framework. The Endee Vector Database serves reliably as the backbone of Errorlens AI's semantic search capabilities.
-
-This project wouldn't exist without the vision and technology that Endee brings to the AI ecosystem. Thank you for empowering developers to build smarter applications.
-
----
-
-<p align="center">
-  <strong>Errorlens AI</strong> &copy; 2026 — Built by Ashok Kumar Boya<br>
-  Designed for the Endee.io Hiring Evaluation Pipeline
-</p>
+</div>
