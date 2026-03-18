@@ -53,7 +53,7 @@ I am dedicated to engineering intelligent, highly scalable AI systems that accur
 
 Experience ErrorLens AI directly via our live deployment routing link below. Alternatively, you can witness the complete system interaction and parsing through the attached standalone graphical video overview.
 
-**🔗 [View Live Application Demo Here](https://ashok-kumar-portfolio.onrender.com)**
+**🔗 [View Live Application Demo Here](https://drive.google.com/file/d/1LPUb81Rom5XfHx5-Pli8BuophFw1UkZb/view?usp=drive_link)**
 
 <div align="center">
   <p><i>(Press Play to observe the active Vector Retrieval Process in action)</i></p>
