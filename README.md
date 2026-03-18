@@ -1,146 +1,253 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/endee-io/endee/main/docs/assets/logo-dark.svg" height="70" alt="Endee Logo" />
+  <!-- 🔥 SINGLE DEBUG LOGO -->
+  <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" height="80" alt="Debug Logo"/>
 
-  <br><br>
-
-  <h1>💻👾 Errorlens AI</h1>
-  <h3>An Intelligent, RAG-Powered Semantic Debugging Assistant</h3>
-
-  <p>
-    <b>Engineered exclusively for the Endee.io Project-Based Evaluation</b>
-  </p>
+  <h1>⚡ ErrorLens AI</h1>
+  <h3>Semantic Debugging Powered by Vector Search + RAG</h3>
 
   <p>
-    <a href="#live-demo"><img src="https://img.shields.io/badge/Live_Demo-Active-6C5CE7?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
-    <img src="https://img.shields.io/badge/Vector_DB-Endee-00B894?style=for-the-badge&logo=databricks" alt="Endee" />
-    <img src="https://img.shields.io/badge/AI_Engine-Google_Gemini-FDCB6E?style=for-the-badge&logo=google" alt="Gemini" />
-    <img src="https://img.shields.io/badge/Backend-FastAPI-0984E3?style=for-the-badge&logo=fastapi" alt="FastAPI" />
+    Intelligent Error Understanding • Instant Fix Generation • Developer Productivity Booster
   </p>
+
 </div>
 
----
+<hr>
 
-## 💻 A Message to the Endee Team
+<!-- ===================================================== -->
+<!-- 🧠 INTRO SECTION -->
+<!-- ===================================================== -->
 
-First and foremost, **thank you** for this incredible opportunity to evaluate the Endee Vector Database. Building Errorlens AI was an absolute thrill. Endee's under-the-hood C++ optimizations, blazing-fast HNSW indexing, and highly elegant Python SDK made engineering this Retrieval-Augmented Generation (RAG) pipeline an incredibly seamless experience. 
+<h2>🧠 What is ErrorLens AI?</h2>
 
-This assignment reinforced exactly why high-performance edge vector search is the future of intelligent tooling. Thank you for your vision and for empowering developers to build smarter applications.
+<table width="100%">
+<tr>
+<td width="55%">
 
----
+ErrorLens AI is an advanced **semantic debugging assistant** that understands errors beyond keywords.
 
-## 🎬 See it in Action!
+It transforms raw stack traces into:
+- Root cause analysis  
+- Clean explanations  
+- Step-by-step solutions  
 
-Watch the complete Endee RAG pipeline run in real-time.
+Using:
+- Vector Search (Endee DB)
+- AI Generation (Gemini)
+- RAG Pipeline
+
+</td>
+
+<td width="45%" align="center">
+
+<!-- 📸 IMAGE PLACEHOLDER -->
+<div style="border:2px dashed #aaa; padding:30px; border-radius:12px;">
+  🚧 Add System Overview Image Here
+</div>
+
+</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- ⚙️ HOW IT WORKS -->
+<!-- ===================================================== -->
+
+<h2>⚙️ How It Works</h2>
+
+<table width="100%">
+<tr>
+<td width="50%" align="center">
+
+<!-- 📸 IMAGE PLACEHOLDER -->
+<div style="border:2px dashed #aaa; padding:30px; border-radius:12px;">
+  🚧 Add Workflow Diagram Here
+</div>
+
+</td>
+
+<td width="50%">
+
+1️⃣ User pastes error  
+2️⃣ Text → Vector Embedding  
+3️⃣ Search in Endee DB  
+4️⃣ Retrieve similar errors  
+5️⃣ Send context to Gemini  
+6️⃣ Generate structured solution  
+
+</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🚀 FEATURES -->
+<!-- ===================================================== -->
+
+<h2>🚀 Key Features</h2>
+
+<table width="100%">
+<tr>
+
+<td align="center">
+<h4>⚡ Instant Debugging</h4>
+<p>Get fixes in milliseconds</p>
+</td>
+
+<td align="center">
+<h4>🧠 Semantic Search</h4>
+<p>Understands meaning, not keywords</p>
+</td>
+
+<td align="center">
+<h4>🌍 Multi-Language</h4>
+<p>Python, Java, JS, DBs</p>
+</td>
+
+</tr>
+</table>
+
+<br>
 
 <div align="center">
-  <video src="ErrorLense_ai.mp4" autoplay loop muted playsinline width="100%" controls></video>
-  <br>
-  <i>(If the video doesn't automatically load, please click the <b>ErrorLense_ai.mp4</b> file directly in the repository to view it in high definition!)</i>
+
+<!-- 📸 IMAGE PLACEHOLDER -->
+<div style="width:80%; border:2px dashed #aaa; padding:30px; border-radius:12px;">
+  🚧 Add Feature Showcase UI Here
 </div>
 
----
+</div>
 
-## 🚀 Live Demo Link
+<hr>
 
-Feel free to interact with the production deployment here:  
-👉 **[View Live Demo of Errorlens AI](https://drive.google.com/file/d/1LPUb81Rom5XfHx5-Pli8BuophFw1UkZb/view?usp=drive_link)** *(Replace this `#` with your actual Render/Vercel URL if hosted!)*
+<!-- ===================================================== -->
+<!-- 🧪 DEMO SECTION -->
+<!-- ===================================================== -->
 
----
+<h2>🎬 Live Demo</h2>
 
-## 💡 What is Errorlens AI?
+<div align="center">
 
-Developers waste countless hours deciphering cryptic, ambiguous error traces. **Errorlens AI** changes the entire debugging paradigm by looking past exact-keyword matching and actually understanding the **semantic intent** of a crash.
+<!-- 📸 VIDEO / GIF PLACEHOLDER -->
+<div style="width:80%; border:2px dashed #aaa; padding:40px; border-radius:12px;">
+  ▶️ Add Demo Video / GIF Here
+</div>
 
-When a developer pastes a stack trace into the UI, Errorlens:
-1. **Encodes** the text into a 384-dimensional semantic float vector via `Sentence Transformers`.
-2. **Searches** the **Endee Vector Database** instantly locating the absolute closest historical error-solution pairs using cosine similarity.
-3. **Generates** a custom fix by feeding the exact Endee matches into **Google Gemini 2.0 Auto/RAG**, generating a stunning HTML/CSS struct containing a Root Cause Analysis, Step-By-Step Solution, and perfectly highlighted Code Tabs.
+</div>
 
-### 🌟 Multi-Language Support
-Errorlens natively supports **8 ecosystems** featuring over **720+ manually curated data patterns** stored actively inside Endee:
-- **Languages:** Python (200+), Java (180+), JavaScript (250+)
-- **Databases:** MySQL (42), MongoDB (21), Redis (10), Firebase (10), Cassandra (5)
+<hr>
 
----
+<!-- ===================================================== -->
+<!-- 📊 RESULTS SECTION (EMPTY FOR YOU) -->
+<!-- ===================================================== -->
 
-## 🏗️ System Design & Architecture
+<h2>📊 Debug Results Preview</h2>
 
-```text
-┌────────────────────────────────────────────────────────┐
-│                   ERRORLENS AI                         │
-│                                                        │
-│  User Input (Error Trace)                              │
-│         │                                              │
-│         ▼                                              │
-│  ┌──────────────────────────────────────────┐          │
-│  │             FastAPI Backend              │          │
-│  │                                          │          │
-│  │  1. /search ──► Embed ──► Endee Query    │          │
-│  │  2. /rag    ──► Context + LLM ──► Report │          │
-│  └──────┬──────────────────────┬────────────┘          │
-│         │                      │                       │
-│         ▼                      ▼                       │
-│  ┌──────────────┐      ┌──────────────┐                │
-│  │ Endee Vector │      │ Google       │                │
-│  │ Database     │      │ Gemini AI    │                │
-│  │ (Docker)     │      │ (RAG Engine) │                │
-│  └──────────────┘      └──────────────┘                │
-│         │                      │                       │
-│         ▼                      ▼                       │
-│   Semantic Matches + Structured HTML/JSON Debug Output │
-└────────────────────────────────────────────────────────┘
-```
-**Why Endee was perfect for this:** It provides incredibly rapid, sub-millisecond retrieval of highly dimensional integer/float arrays at scale, which operates beautifully when doing real-time typing/querying against large LLMs. 
+<div align="center">
 
----
+<div style="width:80%; border:2px dashed #aaa; padding:40px; border-radius:12px;">
+  📌 Result UI Screenshot (Before/After)
+</div>
 
-## ⚙️ Quick Setup Instructions
+<br>
 
-Want to run Errorlens AI locally? Follow these steps:
+<div style="width:80%; border:2px dashed #aaa; padding:40px; border-radius:12px;">
+  📌 AI Generated Solution Output
+</div>
 
-**1. Clone this repository**
-```bash
+</div>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🏗️ ARCHITECTURE -->
+<!-- ===================================================== -->
+
+<h2>🏗️ System Architecture</h2>
+
+<div align="center">
+
+<div style="width:80%; border:2px dashed #aaa; padding:40px; border-radius:12px;">
+  🚧 Add Architecture Diagram Here
+</div>
+
+</div>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- ⚡ TECH STACK -->
+<!-- ===================================================== -->
+
+<h2>⚡ Tech Stack</h2>
+
+<table width="100%">
+<tr>
+
+<td align="center">
+<b>Frontend</b><br>
+HTML • CSS • JS
+</td>
+
+<td align="center">
+<b>Backend</b><br>
+FastAPI
+</td>
+
+<td align="center">
+<b>Vector DB</b><br>
+Endee
+</td>
+
+<td align="center">
+<b>AI Engine</b><br>
+Google Gemini
+</td>
+
+</tr>
+</table>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- ⚙️ SETUP -->
+<!-- ===================================================== -->
+
+<h2>⚙️ Quick Setup</h2>
+
+<pre>
 git clone https://github.com/ashokkumarboya93/endee.git
 cd endee
-```
 
-**2. Start Endee Vector Database**
-```bash
-# Spin up the provided C++ Endee Database inside Docker
 docker compose up -d
-```
 
-**3. Setup Python & Dependencies**
-```bash
 cd debugbot
 python -m venv venv
-# Activate it (Window: .\venv\Scripts\activate | Mac/Linux: source venv/bin/activate)
-
 pip install -r requirements.txt
-```
 
-**4. Configure AI Engine**  
-Create a `.env` file inside `debugbot/api/` and add your free Google AI API Key:
-```env
-GEMINI_API_KEY=your_google_gemini_key_here
-```
+# Add .env
+GEMINI_API_KEY=your_key
 
-**5. Ingest the Data to Endee**
-```bash
-# Converts the 700+ CSV parameters into Vector Embeddings and saves to Endee
 python -m ingest.loader
-```
 
-**6. Launch!**
-```bash
-python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
-```
-Navigate to **`http://localhost:8000`** in any browser.
+uvicorn api.main:app --reload
+</pre>
 
----
+<hr>
+
+<!-- ===================================================== -->
+<!-- 🌟 FOOTER -->
+<!-- ===================================================== -->
 
 <div align="center">
-  <b>Errorlens AI</b> &copy; 2026 — Built by Ashok Kumar Boya<br>
-  <i>Semantic AI Debugging · RAG Pipeline · Vector Search</i>
+
+<h3>🌟 ErrorLens AI</h3>
+
+<p>
+Built for Endee Evaluation • Semantic Debugging Engine
+</p>
+
 </div>
