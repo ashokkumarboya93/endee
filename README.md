@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-light.svg">
+      <img height="100" alt="Endee" src="docs/assets/logo-dark.svg">
+  </picture>
+</p>
 <div align="center">
 
   <img src="Results/background.png" width="100%" alt="ErrorLens AI Banner" style="border-radius:12px; margin-bottom: 20px;" />
